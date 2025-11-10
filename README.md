@@ -1,6 +1,6 @@
 # Botify Pro
 
-Plataforma de gestión de bots construida con Next.js 14 y FastAPI.
+Plataforma de gestión de bots que hemos construido con Next.js 14 y FastAPI.
 
 ## Stack Tecnológico
 
@@ -28,11 +28,11 @@ Botify_pro/
 
 ## Requisitos Previos
 
-Antes de comenzar, asegúrate de tener instalado en tu sistema:
+Antes de comenzar, necesitamos tener instalado:
 
 - **Node.js**: versión 18.x o superior ([Descargar Node.js](https://nodejs.org/))
 - **npm**: versión 9.x o superior (se instala automáticamente con Node.js)
-- **Python**: versión 3.8 o superior (solo si necesitas ejecutar el backend localmente)
+- **Python**: versión 3.8 o superior (solo si necesitamos ejecutar el backend localmente)
 
 Para verificar las versiones instaladas:
 
@@ -42,7 +42,7 @@ npm --version
 python --version  # o python3 --version
 ```
 
-## Instalación y Configuración Local del Frontend
+## Configuración e Instalación
 
 ### 1. Clonar el repositorio
 
@@ -51,20 +51,20 @@ git clone <url-del-repositorio>
 cd Botify_pro
 ```
 
-### 2. Instalar las dependencias de Node.js
+### 2. Instalar dependencias del frontend
 
 ```bash
 npm install
 ```
 
-Este comando instalará todas las dependencias necesarias definidas en `package.json`:
+Este comando instalará las dependencias definidas en `package.json`:
 - Next.js 14
 - React 18
 - TypeScript
 - Tailwind CSS
-- Y todas las dependencias de desarrollo
+- Dependencias de desarrollo
 
-### 3. Ejecutar el servidor de desarrollo
+### 3. Iniciar el servidor de desarrollo
 
 ```bash
 npm run dev
@@ -72,61 +72,61 @@ npm run dev
 
 El frontend estará disponible en [http://localhost:3000](http://localhost:3000)
 
-Verás un mensaje similar a:
+Veremos un mensaje similar a:
 ```
 ✓ Ready in 2.5s
 ○ Local:        http://localhost:3000
 ```
 
-### 4. Abrir en el navegador
+### 4. Verificar en el navegador
 
-Abre tu navegador y visita:
+Podemos acceder a:
 - **Página principal**: http://localhost:3000
 - **Página "Quiénes Somos"**: http://localhost:3000/quienes-somos
 
 ## Scripts Disponibles
 
 - `npm run dev` - Inicia el servidor de desarrollo en http://localhost:3000
-- `npm run build` - Crea una versión optimizada para producción
-- `npm run start` - Ejecuta la versión de producción (requiere ejecutar `build` primero)
-- `npm run lint` - Ejecuta el linter para verificar el código
+- `npm run build` - Genera el build optimizado para producción
+- `npm run start` - Ejecuta el build de producción (requiere ejecutar `build` primero)
+- `npm run lint` - Verifica la calidad del código
 
 ## Solución de Problemas Comunes
 
 ### Error: "Cannot find module"
 ```bash
-# Elimina node_modules y reinstala
+# Limpiamos node_modules e instalamos de nuevo
 rm -rf node_modules package-lock.json
 npm install
 ```
 
 ### Error: "Port 3000 is already in use"
 ```bash
-# Opción 1: Detén el proceso que usa el puerto 3000
-# Opción 2: Usa un puerto diferente
+# Opción 1: Detenemos el proceso que usa el puerto 3000
+# Opción 2: Usamos un puerto diferente
 npm run dev -- -p 3001
 ```
 
 ### Error: "EACCES: permission denied"
 ```bash
-# En Linux/Mac, intenta con:
+# En Linux/Mac:
 sudo npm install
-# O corrige los permisos de npm:
+# O corregimos los permisos de npm:
 sudo chown -R $USER:$USER ~/.npm
 ```
 
 ### Problemas con caché de Next.js
 ```bash
-# Limpia el caché de Next.js
+# Limpiamos el caché
 rm -rf .next
 npm run dev
 ```
 
 ## Desarrollo del Backend (Opcional)
 
-Si necesitas trabajar con el backend de FastAPI localmente:
+Si necesitamos trabajar con el backend de FastAPI localmente:
 
-### 1. Crear un entorno virtual de Python
+### 1. Crear entorno virtual de Python
 
 ```bash
 python -m venv venv
@@ -138,7 +138,7 @@ source venv/bin/activate
 venv\Scripts\activate
 ```
 
-### 2. Instalar las dependencias de Python
+### 2. Instalar dependencias de Python
 
 ```bash
 pip install -r requirements.txt
@@ -147,7 +147,7 @@ pip install -r requirements.txt
 ### 3. Ejecutar FastAPI localmente
 
 ```bash
-# Desde la carpeta raíz del proyecto
+# Desde la raíz del proyecto
 uvicorn api.index:app --reload
 ```
 
@@ -155,55 +155,90 @@ El backend estará disponible en http://localhost:8000
 
 ## API Endpoints
 
-- `GET /api` - Hello World
-- `GET /api/health` - Health check
+- `GET /api` - Endpoint de prueba (Hello World)
+- `GET /api/health` - Health check del servicio
 
 ## Variables de Entorno
 
-El proyecto no requiere variables de entorno para ejecutarse localmente. Si en el futuro necesitas configurar variables de entorno:
+El proyecto no requiere variables de entorno para desarrollo local. Para configuraciones futuras:
 
-1. Crea un archivo `.env.local` en la raíz del proyecto
-2. Añade las variables necesarias:
-```
+1. Creamos un archivo `.env.local` en la raíz del proyecto
+2. Añadimos las variables necesarias:
+```env
 NEXT_PUBLIC_API_URL=http://localhost:3000/api
 ```
 
 ## Despliegue en Producción
 
-El proyecto está configurado para desplegarse en Vercel con soporte para:
-- Next.js static y server-side rendering
+Hemos configurado el proyecto para desplegarse en Vercel con soporte para:
+- Next.js (static y server-side rendering)
 - Python serverless functions para la API
 
 ### Desplegar en Vercel
 
 ```bash
-# Instalar Vercel CLI globalmente (solo la primera vez)
+# Instalamos Vercel CLI globalmente (solo la primera vez)
 npm install -g vercel
 
-# Desplegar
+# Desplegamos a preview
 vercel deploy
 
-# Desplegar a producción
+# Desplegamos a producción
 vercel --prod
 ```
 
-## Tecnologías Utilizadas
+## Stack Tecnológico Detallado
 
-- **Next.js 14**: Framework de React con App Router
-- **React 18**: Biblioteca para construir interfaces de usuario
-- **TypeScript**: Superset de JavaScript con tipado estático
-- **Tailwind CSS**: Framework de CSS utility-first
-- **FastAPI**: Framework de Python para APIs
-- **Mangum**: Adaptador para ejecutar FastAPI en Vercel
+- **Next.js 14**: Framework de React con App Router para renderizado híbrido
+- **React 18**: Biblioteca para construcción de interfaces de usuario
+- **TypeScript**: Tipado estático para JavaScript, mejorando la mantenibilidad
+- **Tailwind CSS**: Framework utility-first para estilos rápidos y consistentes
+- **FastAPI**: Framework moderno de Python para APIs de alto rendimiento
+- **Mangum**: Adaptador ASGI para ejecutar FastAPI en entornos serverless
 
-## Contribuir
+## Mejores Prácticas Implementadas
 
-1. Haz un fork del proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+### Frontend
+- Componentes funcionales con TypeScript para type safety
+- Organización modular de componentes reutilizables
+- App Router de Next.js 14 para optimización automática
+- Tailwind CSS para estilos consistentes y mantenibles
+
+### Backend
+- Arquitectura serverless con FastAPI
+- Endpoints RESTful siguiendo convenciones estándar
+- Separación de concerns entre lógica de negocio y rutas
+
+## Contribuir al Proyecto
+
+1. Hacemos fork del repositorio
+2. Creamos una rama para nuestra feature (`git checkout -b feature/NuevaFuncionalidad`)
+3. Commiteamos los cambios (`git commit -m 'feat: agregar nueva funcionalidad'`)
+4. Pusheamos a la rama (`git push origin feature/NuevaFuncionalidad`)
+5. Abrimos un Pull Request con descripción detallada
+
+### Convenciones de Commits
+
+Utilizamos commits semánticos:
+- `feat:` para nuevas funcionalidades
+- `fix:` para corrección de bugs
+- `docs:` para cambios en documentación
+- `style:` para cambios de formato
+- `refactor:` para refactorizaciones de código
+- `test:` para agregar o modificar tests
+
+## Roadmap
+
+- [ ] Implementar sistema de autenticación
+- [ ] Agregar tests unitarios y de integración
+- [ ] Configurar CI/CD pipeline
+- [ ] Implementar gestión de estados global
+- [ ] Agregar documentación de API con Swagger
 
 ## Licencia
 
 Este proyecto es privado y propietario.
+
+---
+
+**Mantenido por el equipo de Botify Pro**
