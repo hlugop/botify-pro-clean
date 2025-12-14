@@ -45,3 +45,31 @@ __pycache__/
 venv/
 ENV/
 .venv
+*.pyc
+*.pyo
+*.pyd
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Base de datos SQLite (contiene datos de conversaciones)
+chat_history.db
+
+# Archivos Excel con leads (contiene datos sensibles)
+leads_locales.xlsx
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# IDEs y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Archivos temporales
+*.tmp
+*.temp
+.cache/
